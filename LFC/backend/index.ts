@@ -18,18 +18,18 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-app.use(cors({
-  origin: function (origin, callback) {
-    const allowedOrigins = [ `${production_url}`,`${url}`,`${vite_url}`,`${production_port}`];
-    if (allowedOrigins.includes(origin as string)) {
+const allowedOrigins = [vite_url, production_port, production_url, url];
+const corsOptions = {
+  origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS'), false);
     }
   }
-}));
+};
 
+app.use(cors(corsOptions));
 
 app.options('*', cors());
 
