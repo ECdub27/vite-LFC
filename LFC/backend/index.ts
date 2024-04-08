@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 const api = process.env.API_KEY;
 const vite_url = process.env.VITE_PORT;
 const production_port = process.env.PRODUCTION_VITE;
+const production_url = process.env.PRODUCTION;
 const url = process.env.URL;
 const app = express();
 
@@ -20,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: function (origin, callback) {
-    const allowedOrigins = [ `${url}`,`${vite_url}`,`${production_port}`];
+    const allowedOrigins = [ `${production_url}`,`${url}`,`${vite_url}`,`${production_port}`];
     if (allowedOrigins.includes(origin as string)) {
       callback(null, true);
     } else {
