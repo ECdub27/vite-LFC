@@ -1,0 +1,91 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+ 
+}
+
+html{
+  background-color:  rgba(255, 255, 255, 0.2);
+  
+}
+
+
+main{
+  background-color: #911712;
+}
+/* ... 
+color themes 
+--theme-ui-colors-black: #0c0c0c;
+  --theme-ui-colors-white: #fff;
+  --theme-ui-colors-white100: rgba(255, 255, 255, 0.88);
+  --theme-ui-colors-white200: rgba(255, 255, 255, 0.4); Greyish
+  --theme-ui-colors-white300: rgba(255, 255, 255, 0.2);
+  --theme-ui-colors-red50: #FFEFEF;
+  --theme-ui-colors-red100: #DC0714;
+  --theme-ui-colors-red150: #CA0E14;
+  --theme-ui-colors-red200: #B71515;
+  --theme-ui-colors-red300: #911712;
+
+*/
+.head-title{
+  padding-top: 20%;
+  color:#FFE140;
+  font-family: 'League Spartan','Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+.logo {
+  height: 10em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  align-items: flex-end;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.card-parent-container{
+  display: flex;
+  align-items:flex-start;
+  height: 200px;
+}
+.card-title .card-2 .card-3 .card-4{
+  color: rgba(255, 255, 255, 0.88);
+}
+
+
+.card-parent-container {
+  display: flex;
+  align-items: flex-start;
+  height: 200px;
+}
+
+.animation-container,
+.animation-container1 {
+  display: inline-block;
+}
+
+.read-the-docs {
+  color: #888;
+}
+h1{
+  color:whitesmoke;
+}
