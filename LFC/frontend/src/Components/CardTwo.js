@@ -36,6 +36,7 @@ const CardTwo = () => {
             setIsLoading(false);
         });
     }, []);
+    console.log(import.meta.env.VITE_BACKEND_URL);
     {
         error ? (_jsx(_Fragment, { children: "oh no theres an error" })) : isLoading ? (_jsx(_Fragment, { children: "loading..." })) : _jsx(_Fragment, { children: "No data" });
     }

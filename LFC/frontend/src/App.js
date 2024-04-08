@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import Lottie from 'lottie-react';
-import footieLottie from './footie.json';
-import football from './soccerball.json';
+import footieLottie from './assets/lotties/footie.json';
+import football from './assets/lotties/soccerball.json';
 import './App.css';
 import CardOneLFCTeamStats from './Components/CardOne';
 import CardThree from './Components/CardThree';

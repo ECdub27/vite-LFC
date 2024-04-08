@@ -15,7 +15,7 @@ const CardOneLFCTeamStats = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     useEffect(() => {
-        fetch('http://localhost:3000/api/LFCTeams')
+        fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCTeams')
             .then(response => {
             if (response.ok) {
                 return response.json();
