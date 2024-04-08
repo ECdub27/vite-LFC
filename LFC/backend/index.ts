@@ -17,7 +17,6 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-console.log(api, vite_url, production_port);
 
 app.use(cors({
   origin: function (origin, callback) {
