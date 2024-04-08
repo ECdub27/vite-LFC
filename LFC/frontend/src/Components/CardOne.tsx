@@ -4,6 +4,7 @@ import './StyleCard.css';
 import {useState, useEffect} from 'react';
 import { Card, CardContent } from "@mui/material";
 import { ThemeProvider,  createTheme } from '@mui/material';
+console.log(import.meta.env.VITE_BACKEND_URL);
 
 export type APIProps = {
 data1: {

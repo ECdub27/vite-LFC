@@ -31,7 +31,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.options('*', cors());
 
 
 const teamUrl = "https://v3.football.api-sports.io/"
