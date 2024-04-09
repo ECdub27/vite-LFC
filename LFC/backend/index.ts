@@ -27,7 +27,8 @@ const corsOptions = {
     } else {
       callback(new Error('Not allowed by CORS'), false);
     }
-  }
+  },
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
