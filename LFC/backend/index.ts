@@ -18,7 +18,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = [vite_url,production_url, null];
+const allowedOrigins = [vite_url, production_url, null];
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
     console.log('origin', origin);
