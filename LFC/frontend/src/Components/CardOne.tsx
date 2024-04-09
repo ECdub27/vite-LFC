@@ -76,7 +76,14 @@ const CardOneLFCTeamStats:React.FC= ():JSX.Element => {
     
    
   useEffect(() =>{
-   fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCTeams')
+   fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCTeams',{
+    headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'x-apisports-key': `${import.meta.env.VITE_API_KEY}`,
+    'x-rapidapi-host': 'v3.football.api-sports.io',
+    }
+   })
    .then(response => {
     if(response.ok){
         return response.json();

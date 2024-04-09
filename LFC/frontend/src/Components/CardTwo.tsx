@@ -54,7 +54,14 @@ const CardTwo = () => {
       setIsLoading(true);
       setError(null);
   
-      fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCPlayers/squads')
+      fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCPlayers/squads', {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'x-apisports-key': `${import.meta.env.VITE_API_KEY}`,
+        'x-rapidapi-host': 'v3.football.api-sports.io',
+        }
+       })
         .then(response => {
           if (response.ok) {
             return response.json();
