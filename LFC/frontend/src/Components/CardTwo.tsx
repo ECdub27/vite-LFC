@@ -29,7 +29,7 @@ type RosterType = {
 
 }
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 
 const theme = createTheme({
         palette: {
@@ -54,7 +54,7 @@ const CardTwo = () => {
       setIsLoading(true);
       setError(null);
   
-      fetch(`${backendUrl}/api/LFCPlayers/squads`)
+      fetch(`http://127.0.0.1:3000/api/LFCPlayers/squads`)
         .then(response => {
           if (response.ok) {
             return response.json();

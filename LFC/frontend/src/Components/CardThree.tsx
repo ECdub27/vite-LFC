@@ -102,7 +102,7 @@ export const themeOptions: ThemeOptions = {
     },
 });
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL;  
+
 
 const CardThree = () => {
   const [teamFixtures, setTeamFixtures] = useState<Fixture[]>([]);
@@ -113,7 +113,7 @@ const CardThree = () => {
       setIsLoading(true);
       setError(null);
   
-      fetch(`${backendUrl}/api/LFCFixtures/headtohead`)
+      fetch(`http://127.0.0.1:3000/api/LFCFixtures/headtohead`)
         .then(response => {
           if (response.ok) {
             return response.json();
