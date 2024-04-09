@@ -80,7 +80,7 @@ const CardOneLFCTeamStats:React.FC= ():JSX.Element => {
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'x-apisports-key': `${import.meta.env.VITE_API_KEY}`,
+        'x-apisports-key': import.meta.env.API_KEY,
     'x-rapidapi-host': 'v3.football.api-sports.io',
     }
    })
