@@ -76,7 +76,7 @@ const CardOneLFCTeamStats:React.FC= ():JSX.Element => {
     
    
   useEffect(() =>{
-   fetch('http://127.0.0.1:3000/api/LFCTeams')
+   fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCTeams')
    .then(response => {
     if(response.ok){
         return response.json();

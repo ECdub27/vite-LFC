@@ -13,12 +13,12 @@ const api = process.env.API_KEY;
 const vite_url = process.env.FRONTEND_URL;
 // const production_port = process.env.PRODUCTION_VITE;
 const production_url = process.env.PRODUCTION;
-const backendUrl = process.env.BACKEND_URL;
+// const backendUrl = process.env.BACKEND_URL;
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = [vite_url, backendUrl ,production_url];
+const allowedOrigins = [vite_url,production_url];
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
     console.log('origin', origin);
@@ -32,7 +32,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-
+app.options('*', cors());
 
 const teamUrl = "https://v3.football.api-sports.io/"
 

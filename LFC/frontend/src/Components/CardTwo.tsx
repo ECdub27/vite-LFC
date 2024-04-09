@@ -54,7 +54,7 @@ const CardTwo = () => {
       setIsLoading(true);
       setError(null);
   
-      fetch(`http://127.0.0.1:3000/api/LFCPlayers/squads`)
+      fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCPlayers/squads')
         .then(response => {
           if (response.ok) {
             return response.json();
