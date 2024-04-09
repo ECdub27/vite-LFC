@@ -66,7 +66,7 @@ type VenueType = {
         },
     },
 });
-  
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const CardOneLFCTeamStats:React.FC= ():JSX.Element => {
     
    
@@ -76,7 +76,7 @@ const CardOneLFCTeamStats:React.FC= ():JSX.Element => {
     
    
   useEffect(() =>{
-   fetch(import.meta.env.VITE_BACKEND_URL + '/api/LFCTeams')
+   fetch(`${backendUrl}/api/LFCTeams`)
    .then(response => {
     if(response.ok){
         return response.json();

@@ -10,18 +10,19 @@ import asyncHandler from 'express-async-handler';
 
 const PORT = process.env.PORT || 3000;
 const api = process.env.API_KEY;
-const vite_url = process.env.FRONTEND_PORT;
-//const production_port = process.env.PRODUCTION_VITE;
+const vite_url = process.env.FRONTEND_URL;
+// const production_port = process.env.PRODUCTION_VITE;
 const production_url = process.env.PRODUCTION;
-const url = process.env.BACKEND_URL;
+// const url = process.env.BACKEND_URL;
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = [vite_url, production_url, url];
+const allowedOrigins = [vite_url, production_url];
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
-    if (allowedOrigins.includes(origin)) {
+    console.log('origin', origin);
+    if (origin === undefined || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'), false);
@@ -35,12 +36,6 @@ app.use(cors(corsOptions));
 
 const teamUrl = "https://v3.football.api-sports.io/"
 
-
-app.use((req, res, next) => {
-const origin = req.get('origin');
-console.log(origin);
-next();
-});
 
 app.get("/cors", (_req, res) => {
   res.send("CORS ENABLED");
@@ -154,7 +149,7 @@ app.get('/api/LFCPlayers/squads', cors(), asyncHandler(async (_req, res) => {
 app.get('*', cors(), (_req, res) => {
   res.send('Hello World!');
 });
-console.log(origin);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
