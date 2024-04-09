@@ -18,7 +18,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = [vite_url,production_url];
+const allowedOrigins = [vite_url,production_url, null];
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
     console.log('origin', origin);
@@ -30,10 +30,10 @@ const corsOptions = {
   },
   credentials: true,
 };
-
+app.options('*', cors());
 app.use(cors(corsOptions));
 
-app.options('*', cors());
+
 
 const teamUrl = "https://v3.football.api-sports.io/"
 
