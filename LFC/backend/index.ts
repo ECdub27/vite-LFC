@@ -12,26 +12,22 @@ const PORT = process.env.PORT || 3000;
 const api = process.env.API_KEY;
 const vite_url = process.env.FRONTEND_URL;
 // const production_port = process.env.PRODUCTION_VITE;
-const production_url = process.env.PRODUCTION;
+const production_url = process.env.FRONTEND_PRODUCTION;
+const backendProduction = process.env.BACKEND_PRODUCTION;
 // const backendUrl = process.env.BACKEND_URL;
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = [vite_url, production_url, null];
-const corsOptions = {
-  origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
-    console.log('origin', origin);
-    if (origin === undefined || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'), false);
-    }
-  },
+
+app.use(cors({
+  origin: vite_url,
+  methods: ['GET', 'POST'],
   credentials: true,
-};
+  maxAge: 3600,
+}));
+
 app.options('*', cors());
-app.use(cors(corsOptions));
 
 
 
@@ -63,7 +59,7 @@ const options = {
 };
 
 
-app.get('/api/LFCStats', cors(corsOptions), asyncHandler(async (_req, res) => {
+app.get('/api/LFCStats', cors(), asyncHandler(async (_req, res) => {
   const query1 = 'teams/seasons?team=40';
 
   try {
@@ -86,7 +82,7 @@ app.get('/api/LFCStats', cors(corsOptions), asyncHandler(async (_req, res) => {
   }
 }));
 
-app.get('/api/LFCTeams', cors(corsOptions), asyncHandler(async (_req, res) => {
+app.get('/api/LFCTeams', cors(), asyncHandler(async (_req, res) => {
   const query2 = 'teams?id=40';
 
   try {
@@ -107,7 +103,7 @@ app.get('/api/LFCTeams', cors(corsOptions), asyncHandler(async (_req, res) => {
   }
 }));
 
-app.get('/api/LFCFixtures/headtohead', cors(corsOptions), asyncHandler(async (_req, res) => {
+app.get('/api/LFCFixtures/headtohead', cors(), asyncHandler(async (_req, res) => {
   const query3 = 'fixtures/headtohead?h2h=40-49';
   try {
     const response2 = await fetch(`${teamUrl}${query3}`, options);
@@ -127,7 +123,7 @@ app.get('/api/LFCFixtures/headtohead', cors(corsOptions), asyncHandler(async (_r
   }
 }));
 
-app.get('/api/LFCPlayers/squads', cors(corsOptions), asyncHandler(async (_req, res) => {
+app.get('/api/LFCPlayers/squads', cors(), asyncHandler(async (_req, res) => {
   const query4 = 'players/squads?team=40';
 
   try {
