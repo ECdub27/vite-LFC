@@ -5,6 +5,7 @@ dotenv.config({ path: path.resolve(__dirname, 'sensitive.env') });
 import express from 'express';
 import cors from 'cors';
 import asyncHandler from 'express-async-handler';
+import { url } from 'inspector';
 
  
 
@@ -13,12 +14,12 @@ const api = process.env.API_KEY;
 const vite_url = process.env.FRONTEND_URL;
 // const production_port = process.env.PRODUCTION_VITE;
 const production_url = process.env.PRODUCTION;
-// const url = process.env.BACKEND_URL;
+const backendUrl = process.env.BACKEND_URL;
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const allowedOrigins = [vite_url, production_url];
+const allowedOrigins = [vite_url, backendUrl ,production_url];
 const corsOptions = {
   origin: function (origin: string | undefined, callback: (arg0: Error | null, arg1: boolean | undefined) => void) {
     console.log('origin', origin);
