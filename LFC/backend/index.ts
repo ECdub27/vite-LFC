@@ -20,12 +20,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(cors({
-  origin: vite_url,
-  methods: ['GET', 'POST'],
-  credentials: true,
-  maxAge: 3600,
-}));
+app.use(cors());
 
 app.options('*', cors());
 
